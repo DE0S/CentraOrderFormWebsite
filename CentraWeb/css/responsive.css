@@ -1,0 +1,285 @@
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1169px) {
+.container {
+    width: 970px;
+    margin: 0 auto;
+}
+.mainmenu li a {
+  padding: 8px 20px;
+}
+.all-about-us-info {
+  max-height: 303px;
+  min-height: 303px;
+}
+.about-content {
+  font-size: 15px;
+  line-height: 24px;
+  padding: 14px;
+}
+.call-to-title h2 {
+  font-size: 25px;
+}   
+.active-single-team-carousel .owl-nav {
+  top: -20%;
+}   
+.social-links.footer-links li {
+    margin: 97px 6px 0;
+} 
+} /*end*/
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+.container {
+    width: 750px;
+    margin: 0 auto;
+}
+.logo {
+  text-align: center;
+    margin: 0 0 20px;
+}
+.mainmenu li a {
+  padding: 8px 25px;
+}
+.single-slide-text h1 {
+  font-size: 48px;
+  margin: 0 0 20px;
+}
+.single-slide-text p {
+  font-size: 20px;
+}    
+.all-about-us-info {
+  max-height: none;
+  min-height: none;
+  overflow: none;
+}
+.call-to-title h2{
+    font-size: 22px;
+}
+.call-btn {
+   padding: 5px 14px;
+    display: inline-block;     
+}
+.active-single-team-carousel .owl-nav {
+  top: -12%;
+} 
+.single-pricing-item {
+  margin: 0 0 30px;
+}
+.single-blog-item {
+  margin: 0 0 30px;
+}
+.social-links.footer-links li {
+    margin: 97px 3px 0
+}
+.social-links.footer-links li a{
+  height: 20px;
+  line-height: 13px;
+  width: 20px;
+  font-size: 12px;
+}
+.tem-icon-hover {
+  border: 2px solid #fff;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  left: 29%;
+  padding: 4px 20px;
+  position: absolute;
+  top: 50%;
+  transition: all 0.3s ease 0s;
+}
+.about-faq-img img {
+  width: 100%;
+}
+.blog-thumnail img {
+  width: 100%;
+}
+} /*end*/
+
+@media (width: 768px) {
+.single-pricing-item {
+  width: 60%;
+  margin: 30px auto;
+}	
+}
+ 
+/* small mobile :320px. */
+@media (max-width: 767px) {
+.container {
+    width: 300px;
+    margin: 0 auto;
+}
+.logo {
+  text-align: left;
+}
+.single-slide-text h1 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+.mainmenu li a {
+  padding: 8px 25px;
+}
+.single-slide-text p {
+  font-size: 20px;
+}    
+.all-about-us-info {
+  max-height: none;
+  min-height: none;
+  overflow: none;
+} 
+.call-to-title h2 {
+    font-size: 18px;
+}
+.call-work-info {
+  text-align: left;
+}
+.call-btn {
+  font-size: 14px;
+  padding: 2px 25px;
+  transition: .3s;
+  margin: 20px 0 0;
+  display: inline-block;
+}  
+.active-single-team-carousel .owl-nav {
+  top: -12%;
+} 
+.single-pricing-item {
+  max-width: 400px;
+  text-align: center;
+  margin: 0 auto 30px;
+}
+.single-blog-item {
+  margin: 0 0 30px;
+}
+.responsive-menu-wrap {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 30%;
+}
+.mainmenu {
+    display: none;
+}
+.logo {
+    display: inline-block;
+    margin: 7px 0 10px;
+    text-align: left;
+}
+.responsive-menu-wrap .slicknav_menu {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+.responsive-menu-wrap .slicknav_nav {
+    background: #333;
+    font-size: 12px;
+    text-transform: uppercase;
+    width: 200px;
+    margin-top:60px;
+}
+.responsive-menu-wrap .slicknav_nav a {
+  margin: 0 0 5px;
+  padding: 5px 11px;
+  font-weight: 700;
+}
+.single-slide-text p {
+    font-size: 20px;
+    margin: 0 0 12px;
+}
+.boxed-btn {
+    font-size: 12px;
+    padding: 4px 16px;
+}
+.owl-dots {
+    bottom: -11px;
+}
+.active-slider-carousel .owl-dots {
+    bottom: 25px;
+}
+.section-title h2 {
+    font-size: 29px;
+}
+.portfolio-menu {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.active-single-team-carousel .owl-nav {
+    top: -50px;
+}
+.testimonial-carousel .owl-nav {
+    top: -40px;
+}
+.testiomonial-content p {
+    font-size: 14px;
+    line-height: 22px;
+}
+.social-links {
+    margin: 0 0 30px;
+}
+.responsive-menu-wrap .slicknav_btn {
+    background-color: #00a8e7;
+}
+.responsive-menu-wrap .slicknav_nav a:hover {
+    background: none repeat scroll 0 0;
+    border-radius: 0;
+    color: #00a8e7;
+    transition: all 0.3s ease 0s;
+}
+.portfolio-menu button {
+    display: block;
+    margin: 0 0 8px;
+    width: 100%;
+}
+.portfolio-menu {
+    margin: 0 0 50px;
+}
+.active-slider-carousel .owl-nav {
+     display: none;
+}
+.social{
+  display: none;
+}
+.scroll-up-btn{
+  right: 50px;
+}
+.carousel-indicators{
+	bottom: -30px;
+}
+} /*end*/
+ 
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.container {
+    width: 450px;
+    margin: 0 auto;
+}
+.single-slide-text h1 {
+    font-size: 29px;
+}
+.single-slide-text p {
+    font-size: 18px;
+    margin: 0 0 30px;
+}
+.boxed-btn {
+    font-size: 14px;
+    padding: 8px 25px;
+}
+.active-slider-carousel .owl-dots {
+    bottom: 30px;
+}
+.call-to-title h2 {
+    font-size: 28px;
+    line-height: 36px;
+}  
+.call-btn {
+    padding: 6px 30px;}
+
+.active-slider-carousel .owl-nav {
+    display: none;
+}
+.tem-icon-hover {
+    left: 32%;
+}
+.blog-thumnail img {
+  width: 100%;
+}
+} /*end*/
