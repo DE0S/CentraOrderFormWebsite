@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Floods</title>
+    <meta name="description" content="Get in touch">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!----<link rel="shortcut icon" href="img/favicon.png">-->
+
+    <link href="css/magnific-popup.css" rel="stylesheet">
+
+
+    <!-- animated css
+            ============================================ -->
+    <link href="css/animated.css" rel="stylesheet">
+    <!-- slicknav css
+            ============================================ -->
+    <link href="css/slicknav.min.css" rel="stylesheet">
+    <!--style css
+            ============================================ -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--responsive css
+            ============================================ -->
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <link href="css/simple-line-icons.css" rel="stylesheet">
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- start welcome-header-area -->
+    <header class="welcome-header-area" id="home">
+        <div class="container-fluid" style="color: black;">
+            <center>
+                <img src="Centra.jpg" style="height: 100pt;" />
+                <h1 style="margin: 30px 0px 30px 0px; color: #0096a1">Collection / Delivery E-Form</h1>
+            </center>
+        </div>
+    </header>
+
+    <form action="php/contact.php" method="post" enctype="multipart/form-data">
+        <section class="firstDets">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name" required="required" name="name" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="number">Phone Number</label>
+                        <input type="text" class="form-control" id="number" placeholder="(085) 123 4567" required="required" name="phone" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="email">Email Address</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </span>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="name@email.com" required="required" style="width: 100%;" />
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="slider">Collection <t></span>
+                        <input type="radio" id="collDel" name="collDel" value="Collection" onclick="CollectionShow(true)"> &nbsp;&nbsp;&nbsp;
+                        <span class="slider">Delivery</span>
+                        <input type="radio" id="collDel" name="collDel" value="Delivery" onclick="CollectionShow(false)">
+                    </div>
+                </div>
+
+                <div class="row" id="addressRow" style="display: block;">
+                    <div class="col-md-6">
+                        <label for="address">Address</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </span>
+                            <textarea name="Address" id="address" class="form-control" rows="4" cols="1" placeholder="Address"></textarea>
+                        </div>
+                        <br>
+                        <input type="text" class="form-control" id="eircode" placeholder="Y34FX31" name="eircode" style="width:150px" />
+                        <i><a href="https://finder.eircode.ie/#/" target="_blank"
+                                style="color: grey;font-size: 12px;">Find my eircode</a></i>
+                    </div>
+                </div>
+                <small id="emailHelp" class="form-text text-muted" style="margin:10px 0px 0px 0px">We'll never share
+                    these details with
+                    anyone else</small>
+            </div>
+        </section>
+
+        <br>
+        <br>
+        <section id="Products">
+
+            <div class="container">
+                <h5>What products would you like?</h5>
+                <br>
+                <div class="row" id="productsContainer">
+
+                    <!--Titles-->
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-md-7">
+                                Product
+                            </div>
+                            <div class="col-md-3">
+                                Qty/Weight
+                            </div>
+                        </div>
+                    </div>
+                    <!--Titles-->
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-md-7">
+                                Product
+                            </div>
+                            <div class="col-md-3">
+                                Qty/Weight
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-sm-6 formElement">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input id="singleProduct" name="product" class="form-control" rows="1" placeholder="Product"></input>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input id="singleProductWeight" name="weight" class="form-control" rows="1" placeholder="Qty/Weight"></input>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-sm-6 formElement">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input id="singleProduct" name="product" class="form-control" rows="1" placeholder="Product"></input>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input id="singleProductWeight" name="weight" class="form-control" rows="1" placeholder="Qty/Weight"></input>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-sm-6 formElement">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input id="singleProduct" name="product" class="form-control" rows="1" placeholder="Product"></input>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input id="singleProductWeight" name="weight" class="form-control" rows="1" placeholder="Qty/Weight"></input>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-sm-6 formElement">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input id="singleProduct" name="product" class="form-control" rows="1" placeholder="Product"></input>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input id="singleProductWeight" name="weight" class="form-control" rows="1" placeholder="Qty/Weight"></input>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-sm-6 formElement">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input id="singleProduct" name="product" class="form-control" rows="1" placeholder="Product"></input>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input id="singleProductWeight" name="weight" class="form-control" rows="1" placeholder="Qty/Weight"></input>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-sm-6 formElement">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input id="singleProduct" name="product" class="form-control" rows="1" placeholder="Product"></input>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input id="singleProductWeight" name="weight" class="form-control" rows="1" placeholder="Qty/Weight"></input>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-sm-6 formElement">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input id="singleProduct" name="product" class="form-control" rows="1" placeholder="Product"></input>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input id="singleProductWeight" name="weight" class="form-control" rows="1" placeholder="Qty/Weight"></input>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-sm-6 formElement">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input id="singleProduct" name="product" class="form-control" rows="1" placeholder="Product"></input>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input id="singleProductWeight" name="weight" class="form-control" rows="1" placeholder="Qty/Weight"></input>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+
+
+                    <div id="AddAfter"></div>
+
+                    <div class="col-sm-6" id="addProductBtn">
+                        <div class="fillPlus">
+                            <button id="addElement" type="button">+</button>
+                        </div>
+                        <br>
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="submitButton" style="margin:20px 0px 20px 0px">Send</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </form>
+    <br>
+    <hr>
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>About</h6>
+                    <p class="text-justify">This store is located in Ramsgrange and caters for all the needs of the local community. It is well known by all the people who holiday in this area of South Wexford
+                    </p>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Contact us</h6>
+
+                    <p>Ramsgrange, New Ross, Co. Wexford</p>
+                    <p>(051) 389 170</p>
+
+
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Links</h6>
+                    <a href="https://www.facebook.com/FloodsCentraRamsgrange">Facebook</a>
+                    <br>
+                    <a href="https://www.instagram.com/floods_centra/">Instagram</a>
+                    <br>
+                    <a href="https://centra.ie/terms">Terms & Conditions</a>
+                    <br>
+                    <a href="https://centra.ie/privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!--adding products-->
+    <script>
+        parent = $('#AddAfter');
+        num = 0;
+        ///Handles functionality of adding / removing products
+        $("#addElement").click(function() {
+            //if (num < 50) { //Sets limits to amt of products
+            $.get("Common/productField.html", function(data) {
+                $(parent).before(data);
+                $(data).find("#singleProduct").attr("name", "CHANGED");
+                $(data).find("#singleProductWeight").attr("name", "Changed");
+
+
+            });
+
+            num++;
+        });
+
+
+        $("#addElement").click(function() {
+            newDiv = "<p id = 'maxNum'>" + num + "</p>";
+            $("body").after(newDiv);
+        });
+    </script>
+
+    <script>
+        ///Display / Hide the address section
+        addressBox = document.getElementById("addressRow")
+        addressBox.style.display = "none";
+
+        function deleteDiv(element) {
+            element.remove();
+        }
+
+        function CollectionShow(isCollection) {
+            if (!isCollection) {
+                addressBox.style.display = "block";
+            } else {
+                addressBox.style.display = "none";
+            }
+        }
+
+        ///Makes sure correct actual name has been entered
+        function namevalidate() {
+            var txtbox = document.getElementById("name");
+            var name_val = txtbox.value;
+            var ptr = /^[a-z A-Z '`]+$/;
+            document.getElementById("name_msg").innerHTML = "<p style='color:green'> you have entered data in correct format";
+
+
+            if (name_val.match(ptr)) {
+                txtbox.style.border = '2px solid green';
+            } else {
+                txtbox.style.border = '2px solid red';
+                document.getElementById("name_msg").innerHTML = "<p style='color:red'>Only Alphabets are allowed , numbers are not allowed";
+            }
+        }
+
+        ///Makes sure proper email has been inputted
+        function emailvalidate() {
+            var txtbox = document.getElementById("email");
+            var email_val = txtbox.value;
+            var ptr = /^[a-z 0-9 .]+@[a-z]+\.[a-z]+$/;
+            if (email_val.match(ptr)) {
+                txtbox.style.border = '2px solid green';
+                document.getElementById("e_mail").innerHTML = "<p style='color:green'>you have enter email in correct format</p>;";
+            } else {
+                txtbox.style.border = '2px solid red';
+                document.getElementById("e_mail").innerHTML = "<p style='color:red'>correct your email in this format as abc@gmail.com</p>";
+            }
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

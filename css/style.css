@@ -1,0 +1,22 @@
+body {
+    font-size: large;
+}
+
+button {
+    border: none;
+}
+
+#addElement {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+label {
+    margin-top: 20px;
+}
+
+.fillPlus {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
