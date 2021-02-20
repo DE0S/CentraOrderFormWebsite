@@ -4,19 +4,137 @@ body {
 
 button {
     border: none;
+    box-shadow: 1px 1px 4px #cecece;
+}
+
+.formElement button {
+    width: 25px;
+    height: 35px;
 }
 
 #addElement {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    width: 55px;
+    height: 55px;
+}
+
+#addProductBtn {
+    border-radius: 20px;
+    left: 35%;
 }
 
 label {
     margin-top: 20px;
 }
 
-.fillPlus {
-    margin-top: 50px;
-    margin-bottom: 50px;
+#submitButton {
+    height: 44px;
+    width: 80px;
+}
+
+
+/*
+Max-Width = if device width is <= 600
+Min-Width = if device width is >= 600
+
+*/
+
+@media screen and (max-width: 768px) {
+    .titles {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .titles {
+        display: block;
+    }
+}
+
+
+/* Cookie Dialog */
+
+#gdpr-cookie-message {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    max-width: 375px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
+    margin-left: 30px;
+    font-family: system-ui;
+}
+
+#gdpr-cookie-message h4 {
+    color: black;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+#gdpr-cookie-message h5 {
+    color: #0096a1;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+#gdpr-cookie-message p,
+#gdpr-cookie-message ul {
+    color: black;
+    font-size: 15px;
+    line-height: 1.5em;
+}
+
+#gdpr-cookie-message p:last-child {
+    margin-bottom: 0;
+    text-align: right;
+}
+
+#gdpr-cookie-message li {
+    width: 49%;
+    display: inline-block;
+}
+
+#gdpr-cookie-message a {
+    color: grey;
+    float: left;
+    margin: 5px 0px 0px 10px;
+}
+
+#gdpr-cookie-message button,
+button#ihavecookiesBtn {
+    border: none;
+    float: left;
+    background: #0096a1;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    padding: 7px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+#gdpr-cookie-message button:hover {
+    background: #00646b;
+    transition: all 0.3s ease-in;
+}
+
+button#gdpr-cookie-advanced {
+    background: white;
+    color: #0096a1;
+}
+
+#gdpr-cookie-message button:disabled {
+    opacity: 0.3;
+}
+
+#gdpr-cookie-message input[type="checkbox"] {
+    float: none;
+    margin-top: 0;
+    margin-right: 5px;
 }

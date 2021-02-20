@@ -1,12 +1,15 @@
 <?php
-/* Set e-mail recipient */
-$myemail  = "EMAIL@email.com";
 
+
+
+/* Set e-mail recipient */
+$myemail  = "name@gmail.com";
 
 /* Check all form inputs using check_input function */
 $name = check_input($_POST['name'], 'Name');
 $email = check_input($_POST['email'], 'Email');
 $number = check_input($_POST['phone'], 'Phone');
+
 
 $isDelivery = check_input($_POST["collDel"], 'Collection');
 
@@ -20,24 +23,19 @@ if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
     show_error("E-mail address not valid");
 }
 
-//$productArray = array();
-$allProducts = "";
+$max = $_POST['maxNum'];
 
-for($i = 0; $i <= 20; $i++)
+for($i = 0; $i <= $max; $i++)
 {
-    if($_POST['product'+ $i] != null)
+    if($_POST['product'. $i] != null)
     {
-        
-        //array_push($productArray, check_input($_POST['product'+ $i], 'No Product') + " " + check_input($_POST['weight' + $i], 'no Amt'));
-        
-    }
-
-    $product = $_POST['product'+ $i];
-    $weight = $_POST['weight' + $i];
-    $allProducts .= $product . " " . $weight . " " . $i . "\n";
+        $product = $_POST['product'. $i];
+        $weight = $_POST['weight'. $i];
+        $allProducts .= $i . '. ' .  $product . ' ' . $weight . PHP_EOL;
+    }   
 }
 
-$vals = array_values($array);
+
 $productCount = count($productArray);
 
 /* message for the e-mail */
@@ -52,14 +50,10 @@ Phone Number: $number
 Collection / Delivery: $isDelivery
 
 Products:
-Product1
-Product2
-Product3
-Product4
-Product5
-Product6
+$allProducts
 
 
+Total: $max
 
 End of message
 ";
