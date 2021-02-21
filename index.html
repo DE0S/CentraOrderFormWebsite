@@ -134,7 +134,7 @@
                         </div>
                         <br>
                         <input type="text" class="form-control" id="eircode" placeholder="Y34FX31" name="eircode" style="width:150px" />
-                        <br>
+
                         <i><a href="https://finder.eircode.ie/#/" target="_blank"
                                 style="color: grey;font-size: 12px;">Find my eircode</a></i>
                     </div>
@@ -183,14 +183,11 @@
                     <div class="col-lg-6 col-sm-6 formElement">
                         <div class="row">
                             <div class="col-10 col-lg-7 col-sm-7">
-                                <input id="singleProduct" required name="product0" class="form-control" rows="1" placeholder="Product"></input>
+                                <input id="singleProduct" required name="product0" class="form-control" rows="1" placeholder="Brand product"></input>
                             </div>
 
                             <div class="col-4 col-lg-3 col-sm-4">
                                 <input id="singleProductWeight" name="weight" class="form-control" rows="1" value="1"></input>
-                            </div>
-                            <div class="col-lg-1">
-                                <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
                             </div>
                         </div>
                         <br>
@@ -199,7 +196,7 @@
                     <div class="col-lg-6 col-sm-6 formElement">
                         <div class="row">
                             <div class="col-10 col-lg-7 col-sm-7">
-                                <input id="singleProduct" required name="product1" class="form-control" rows="1" placeholder="Product"></input>
+                                <input id="singleProduct" name="product1" class="form-control" rows="1" placeholder="Brand product"></input>
                             </div>
 
                             <div class="col-4 col-lg-3 col-sm-4">
@@ -225,7 +222,7 @@
 
                 <br><br><br>
                 <div class="col-lg-12 col-12">
-                    <button type="submit" class="btn btn-primary pull-right" id="submitButton">Send</button>
+                    <button type="submit" class="btn btn-primary pull-right" id="submitButton">Done</button>
                 </div>
                 <br><br><br>
         </section>
@@ -272,18 +269,25 @@
     <!--adding products-->
     <script>
         parent = $('#AddAfter');
-        var num = 2;
+        num = 2;
+        maxToSpawn = 13; ///Max product fields to show
+
+        if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // some code..
+            maxToSpawn = 6;
+        }
 
         ///Create 20 more instances of the buttons
-        for (i = 0; i <= 15; i++) {
-            $.get("Common/productField.html", function(data) {
+        $.get("Common/productField.html", function(data) {
+            for (i = 0; i < maxToSpawn; i++) {
                 var newDiv = $(data);
                 $(newDiv).find("#singleProduct").attr("name", "product" + num);
                 $(newDiv).find("#singleProductWeight").attr("name", "weight" + num);
                 $(parent).before(newDiv);
-            });
-            num++;
-        }
+                num++;
+            }
+        });
+
 
 
         ///Handles functionality of adding / removing products

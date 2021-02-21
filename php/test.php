@@ -17,6 +17,7 @@
     $eircode = $_POST["eircode"];
 
     $max = $_POST['maxNum'];
+    $actualMax = 0;
 
     for($i = 0; $i <= $max; $i++)
     {
@@ -24,8 +25,12 @@
         {
             $product = $_POST['product'. $i];
             $weight = $_POST['weight'. $i];
-            $allProducts .= ($i+1) . '. ' .  $product . ' ' . $weight . PHP_EOL . '<br>';
+            $actualMax += 1;
+            $allProducts .= $actualMax . '. ' .  $product . ' ' . $weight . PHP_EOL . '<br>';
         }   
+        else{
+            continue;
+        }
     }
 
 
@@ -66,10 +71,6 @@
     }
     ?>
 
-    ?>
-
-    
-
     <h1> Test Dev Screen </h1>
 
     <div id = "name">Name: <?php echo $name;?></div>
@@ -83,7 +84,7 @@
     <b>Products</b>
     <div id = "products"><?php echo $allProducts;?></div>
     <br>
-    <div id = "totalProducts">Total: <?php echo $max;?></div>
+    <div id = "totalProducts">Total: <?php echo $actualMax;?></div>
     <br>
     <a href = "http://deividasovs.com/assets/websites/CentraWeb/index"> Back </a>
 

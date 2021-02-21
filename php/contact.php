@@ -32,8 +32,10 @@ for($i = 0; $i <= $max; $i++)
         $product = $_POST['product'. $i];
         $weight = $_POST['weight'. $i];
         $allProducts .= $i . '. ' .  $product . ' ' . $weight . PHP_EOL;
+    
     }   
 }
+
 
 
 /* message for the e-mail */
@@ -51,11 +53,13 @@ Products:
 $allProducts
 
 
-Total: $max
+
 
 End of message
 ";
 
+
+//Total: $actualMax
 //Product count: $productCount
 /* Send the message using mail() function */
 mail($myemail, "New Online Order!", $message);
