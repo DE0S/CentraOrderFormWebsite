@@ -13,7 +13,9 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
+    <!--style css
+            ============================================ -->
+    <link href="css/style.css" rel="stylesheet">
     <!----<link rel="shortcut icon" href="img/favicon.png">-->
 
     <link href="css/magnific-popup.css" rel="stylesheet">
@@ -25,9 +27,7 @@
     <!-- slicknav css
             ============================================ -->
     <link href="css/slicknav.min.css" rel="stylesheet">
-    <!--style css
-            ============================================ -->
-    <link href="css/style.css" rel="stylesheet">
+
     <!--responsive css
             ============================================ -->
     <link href="css/responsive.css" rel="stylesheet">
@@ -86,19 +86,19 @@
         </div>
     </header>
 
-    <form action="php/contact.php" method="post" enctype="multipart/form-data">
+    <form action="php/test.php" method="post" enctype="multipart/form-data">
         <section class="firstDets">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Name" required="required" name="name" />
+                        <input type="text" class="form-control" id="name" placeholder="Name" required name="name" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <label for="number">Phone Number</label>
-                        <input type="text" class="form-control" id="number" placeholder="(085) 123 4567" required="required" name="phone" />
+                        <input type="text" class="form-control" id="number" placeholder="(085) 123 4567" required name="phone" />
                     </div>
                 </div>
                 <div class="row">
@@ -108,7 +108,7 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-envelope"></span>
                             </span>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="name@email.com" required="required" style="width: 100%;" />
+                            <input type="email" name="email" class="form-control" id="email" placeholder="name@email.com" required style="width: 100%;" />
                         </div>
                     </div>
 
@@ -117,9 +117,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <span class="slider">Collection <t></span>
-                        <input type="radio" id="collDel" name="collDel" value="Collection" onclick="CollectionShow(true)"> &nbsp;&nbsp;&nbsp;
+                        <input type="radio" class="collDel" name="collDel" value="Collection" required onclick="CollectionShow(true)"> &nbsp;&nbsp;&nbsp;
                         <span class="slider">Delivery</span>
-                        <input type="radio" id="collDel" name="collDel" value="Delivery" onclick="CollectionShow(false)">
+                        <input type="radio" class="collDel" name="collDel" value="Delivery" onclick="CollectionShow(false)">
                     </div>
                 </div>
 
@@ -130,7 +130,7 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-envelope"></span>
                             </span>
-                            <textarea name="Address" id="address" class="form-control" rows="4" cols="1" placeholder="Address"></textarea>
+                            <textarea name="address" id="address" class="form-control" rows="4" cols="1" placeholder="Address"></textarea>
                         </div>
                         <br>
                         <input type="text" class="form-control" id="eircode" placeholder="Y34FX31" name="eircode" style="width:150px" />
@@ -183,7 +183,7 @@
                     <div class="col-lg-6 col-sm-6 formElement">
                         <div class="row">
                             <div class="col-10 col-lg-7 col-sm-7">
-                                <input id="singleProduct" name="product0" class="form-control" rows="1" placeholder="Product"></input>
+                                <input id="singleProduct" required name="product0" class="form-control" rows="1" placeholder="Product"></input>
                             </div>
 
                             <div class="col-4 col-lg-3 col-sm-4">
@@ -199,11 +199,11 @@
                     <div class="col-lg-6 col-sm-6 formElement">
                         <div class="row">
                             <div class="col-10 col-lg-7 col-sm-7">
-                                <input id="singleProduct" name="product0" class="form-control" rows="1" placeholder="Product"></input>
+                                <input id="singleProduct" required name="product1" class="form-control" rows="1" placeholder="Product"></input>
                             </div>
 
                             <div class="col-4 col-lg-3 col-sm-4">
-                                <input id="singleProductWeight" name="weight" class="form-control" rows="1" value="1"></input>
+                                <input id="singleProductWeight" name="weight1" class="form-control" rows="1" value="1"></input>
                             </div>
                             <div class="col-lg-1">
                                 <button id="delete" type="button" onclick="deleteDiv(this.parentElement.parentElement.parentElement)">-</button>
@@ -216,12 +216,11 @@
 
                     <div id="AddAfter"></div>
 
-
-                    <div class="col-lg-6 col-1 formElement" id="addProductBtn">
-
+                    <div class="col-2 col-lg-2 col-sm-2"></div>
+                    <div class="col-lg-2 col-sm-2 formElement" id="addProductBtn">
                         <button id="addElement" type="button">+</button>
-
                     </div>
+                    <div class="col-2 col-lg-2 col-sm-2"></div>
                 </div>
 
                 <br><br><br>
@@ -273,7 +272,20 @@
     <!--adding products-->
     <script>
         parent = $('#AddAfter');
-        var num = 0;
+        var num = 2;
+
+        ///Create 20 more instances of the buttons
+        for (i = 0; i <= 15; i++) {
+            $.get("Common/productField.html", function(data) {
+                var newDiv = $(data);
+                $(newDiv).find("#singleProduct").attr("name", "product" + num);
+                $(newDiv).find("#singleProductWeight").attr("name", "weight" + num);
+                $(parent).before(newDiv);
+            });
+            num++;
+        }
+
+
         ///Handles functionality of adding / removing products
         $("#addElement").click(function() {
             //if (num < 50) { //Sets limits to amt of products
@@ -283,8 +295,6 @@
                 $(newDiv).find("#singleProductWeight").attr("name", "weight" + num);
                 $(parent).before(newDiv);
             });
-
-
             num++;
         });
 

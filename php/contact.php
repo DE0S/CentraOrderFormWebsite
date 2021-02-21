@@ -9,8 +9,8 @@ $myemail  = "name@gmail.com";
 $name = check_input($_POST['name'], 'Name');
 $email = check_input($_POST['email'], 'Email');
 $number = check_input($_POST['phone'], 'Phone');
-
-
+$address = $_POST["address"];
+$eircode = $_POST["eircode"];
 $isDelivery = check_input($_POST["collDel"], 'Collection');
 
 ///Product & weight info
@@ -35,8 +35,6 @@ for($i = 0; $i <= $max; $i++)
     }   
 }
 
-
-$productCount = count($productArray);
 
 /* message for the e-mail */
 $message = "New order!
