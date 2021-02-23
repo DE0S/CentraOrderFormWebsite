@@ -6,9 +6,9 @@
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Floods</title>
-    <meta name="description" content="Get in touch">
-    <meta name="keywords" content="">
+    <title>Floods Centra</title>
+    <meta name="description" content="Fill out this form and we'll bring your products right to your door!">
+    <meta name="keywords" content="Floods Centra, Centra Ramsgrange, Centra Online Deliveries">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -16,12 +16,13 @@
     <!--style css
             ============================================ -->
     <link href="css/style.css" rel="stylesheet">
-    <!----<link rel="shortcut icon" href="img/favicon.png">-->
+
 
     <link href="css/magnific-popup.css" rel="stylesheet">
 
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 
-    <!-- animated css
+    <!-- animated css   
             ============================================ -->
     <link href="css/animated.css" rel="stylesheet">
     <!-- slicknav css
@@ -38,12 +39,12 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <script type="text/javascript" src="jqufery.ihavecookies.js"></script>
+    <script type="text/javascript" src="jquery.ihavecookies.js"></script>
 
     <script type="text/javascript">
         var options = {
             title: '&#x1F36A; Accept Cookies',
-            message: 'This website uses cookies to ensure you get the best experience on our website.',
+            message: 'We use cookies to ensure you get the best experience on our website.',
             delay: 600,
             expires: 60,
             link: 'https://centra.ie/cookies',
@@ -63,8 +64,9 @@
         $(document).ready(function() {
             $('body').ihavecookies(options);
 
+            ///If cookies have ben accepted, do something
             if ($.fn.ihavecookies.preference('marketing') === true) {
-                console.log('This should run because marketing is accepted.');
+                console.log('Cookies have already been accepted');
             }
 
             $('#ihavecookiesBtn').on('click', function() {
@@ -80,25 +82,25 @@
     <header class="welcome-header-area" id="home">
         <div class="container-fluid" style="color: black;">
             <center>
-                <img src="Centra.jpg" style="height: 100pt; margin-top:20px" />
+                <img src="Centra.jpg" style="height: 120pt; margin-top:20px" />
                 <h1 style="margin: 20px 0px 20px 0px; color: #0096a1">Collection / Delivery E-Form</h1>
             </center>
         </div>
     </header>
 
-    <form action="php/test.php" method="post" enctype="multipart/form-data">
+    <form action="php/contact.php" method="post" enctype="multipart/form-data">
         <section class="firstDets">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Name" required name="name" />
+                        <input type="text" class="form-control" id="name" placeholder="Enter name" required name="name" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <label for="number">Phone Number</label>
-                        <input type="text" class="form-control" id="number" placeholder="(085) 123 4567" required name="phone" />
+                        <input type="text" class="form-control" id="number" placeholder="Enter Phone Number" required name="phone" />
                     </div>
                 </div>
                 <div class="row">
@@ -108,7 +110,7 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-envelope"></span>
                             </span>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="name@email.com" required style="width: 100%;" />
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required style="width: 100%;" />
                         </div>
                     </div>
 
@@ -130,10 +132,10 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-envelope"></span>
                             </span>
-                            <textarea name="address" id="address" class="form-control" rows="4" cols="1" placeholder="Address"></textarea>
+                            <textarea name="address" id="address" class="form-control" rows="4" cols="1" placeholder="Enter Address"></textarea>
                         </div>
                         <br>
-                        <input type="text" class="form-control" id="eircode" placeholder="Y34FX31" name="eircode" style="width:150px" />
+                        <input type="text" class="form-control" id="eircode" placeholder="Eircode" name="eircode" style="width:150px" />
 
                         <i><a href="https://finder.eircode.ie/#/" target="_blank"
                                 style="color: grey;font-size: 12px;">Find my eircode</a></i>
@@ -183,7 +185,7 @@
                     <div class="col-lg-6 col-sm-6 formElement">
                         <div class="row">
                             <div class="col-10 col-lg-7 col-sm-7">
-                                <input id="singleProduct" required name="product0" class="form-control" rows="1" placeholder="Brand product"></input>
+                                <input id="singleProduct" required name="product0" class="form-control" rows="1" placeholder="Product name"></input>
                             </div>
 
                             <div class="col-4 col-lg-3 col-sm-4">
@@ -237,16 +239,14 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-6">
                     <h6>About</h6>
-                    <p class="text-justify">This store is located in Ramsgrange and caters for all the needs of the local community. It is well known by all the people who holiday in this area of South Wexford
+                    <p>This store is located in Ramsgrange and caters for all the needs of the local community. It is well known by all the people who holiday in this area of South Wexford
                     </p>
                 </div>
 
                 <div class="col-xs-6 col-lg-3">
                     <h6>Contact us</h6>
-
-                    <p>Ramsgrange, New Ross, Co. Wexford</p>
                     <p>(051) 389 170</p>
-
+                    <p>Ramsgrange, New Ross, Co. Wexford</p>
 
                 </div>
 

@@ -3,7 +3,8 @@
 
 
 /* Set e-mail recipient */
-$myemail  = "name@gmail.com";
+$shopEmail  = "name@gmail.com";
+$developerEmail  = "name@gmail.com";
 
 /* Check all form inputs using check_input function */
 $name = check_input($_POST['name'], 'Name');
@@ -13,17 +14,10 @@ $address = $_POST["address"];
 $eircode = $_POST["eircode"];
 $isDelivery = check_input($_POST["collDel"], 'Collection');
 
-///Product & weight info
-
 //$maxNum = check_input($_POST['maxNum'], 'No max num');
 
-/* If e-mail is not valid show error message */
-if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
-{
-    show_error("E-mail address not valid");
-}
-
 $max = $_POST['maxNum'];
+$actualMax = 0;
 
 for($i = 0; $i <= $max; $i++)
 {
@@ -31,11 +25,52 @@ for($i = 0; $i <= $max; $i++)
     {
         $product = $_POST['product'. $i];
         $weight = $_POST['weight'. $i];
-        $allProducts .= $i . '. ' .  $product . ' ' . $weight . PHP_EOL;
-    
+        $actualMax += 1;
+        $allProducts .= $actualMax . '. ' .  $product . '  x' . $weight . PHP_EOL;
     }   
+    else{
+        continue;
+    }
 }
 
+/* If e-mail is not valid show error message */
+if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
+{
+    show_error("E-mail address not valid");
+}
+
+
+$customerMessage = 
+"Thank you for your order!
+
+Below are the details submitted
+
+
+Name: $name
+
+E-mail: $email
+
+Phone Number: $number
+
+Collection / Delivery: $isDelivery
+
+Address
+$address
+
+Eircode
+$eircode
+
+Products:
+$allProducts
+
+
+Total: $actualMax
+
+
+Contact (051) 389 170
+Flood's Centra
+Ramsgrange, New Ross, Co. Wexford
+";
 
 
 /* message for the e-mail */
@@ -49,20 +84,33 @@ Phone Number: $number
 
 Collection / Delivery: $isDelivery
 
+Address
+$address
+
+Eircode
+$eircode
+
 Products:
 $allProducts
 
 
+Total: $actualMax
 
-
-End of message
+End of Message
 ";
 
 
-//Total: $actualMax
-//Product count: $productCount
+
 /* Send the message using mail() function */
-mail($myemail, "New Online Order!", $message);
+
+
+mail($shopEmail, "New Online Order!", $message);
+
+//Customer Confirmation
+mail($email, "Flood's Order confirmation", $customerMessage);
+
+///Sent for to me
+mail($developerEmail, "New Online Order!", $message);
 
 /* Redirect visitor to the thank you page */
 header('Location: ../thanks.html');
@@ -84,13 +132,16 @@ function check_input($data, $problem='')
 
 function show_error($myError)
 {
+    mail("deividov2000@gmail.com", "WEBSITE ERROR", "The error was " . $myError);
+
 ?>
     <html>
     <body>
-
-    <b>Please correct the following error:</b><br />
-    <?php echo $myError; ?>
-
+    <h2>Oh no!</h2>
+    <p>Something went wrong. Our developers have been notified and it'll get fixed asap!</p>
+    <p>Please try again</p>
+    <br/>
+    <a href = "http://deividasovs.com/assets/websites/CentraWeb/index"><button>Back</button></a>
     </body>
     </html>
 <?php
