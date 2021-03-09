@@ -3,7 +3,8 @@
 
 
 /* Set e-mail recipient */
-$shopEmail  = "name@gmail.com";
+$shopEmail  = "name@email.ie";
+//$shopEmail = "deivydas200082@gmail.com";
 $developerEmail  = "name@gmail.com";
 
 /* Check all form inputs using check_input function */
@@ -11,7 +12,7 @@ $name = check_input($_POST['name'], 'Name');
 $email = check_input($_POST['email'], 'Email');
 $number = check_input($_POST['phone'], 'Phone');
 $address = $_POST["address"];
-$eircode = $_POST["eircode"];
+//$eircode = $_POST["eircode"];
 $isDelivery = check_input($_POST["collDel"], 'Collection');
 
 //$maxNum = check_input($_POST['maxNum'], 'No max num');
@@ -57,9 +58,6 @@ Collection / Delivery: $isDelivery
 Address
 $address
 
-Eircode
-$eircode
-
 Products:
 $allProducts
 
@@ -74,8 +72,9 @@ Ramsgrange, New Ross, Co. Wexford
 
 
 /* message for the e-mail */
-$message = "New order!
+$message = "
 
+Order details
 Name: $name
 
 E-mail: $email
@@ -87,9 +86,6 @@ Collection / Delivery: $isDelivery
 Address
 $address
 
-Eircode
-$eircode
-
 Products:
 $allProducts
 
@@ -99,18 +95,20 @@ Total: $actualMax
 End of Message
 ";
 
+$headers = 'From: Floods Online <name@floodscentra.ie>' . " " . PHP_EOL .
+'Reply-To: Floods <name@centra.ie>' . PHP_EOL .
+'X-Mailer: PHP/' . phpversion();
 
 
 /* Send the message using mail() function */
 
-
-mail($shopEmail, "New Online Order!", $message);
+mail($shopEmail, "New Online Order!", $message, $headers, '-freturnorders@name.ie' );
 
 //Customer Confirmation
-mail($email, "Flood's Order confirmation", $customerMessage);
+mail($email, "Order confirmation", $customerMessage, $headers, '-freturnorders@name.ie' );
 
 ///Sent for to me
-mail($developerEmail, "New Online Order!", $message);
+mail($developerEmail, "New Online Order!", $message, $headers, '-freturnorders@name.ie' );
 
 /* Redirect visitor to the thank you page */
 header('Location: ../thanks.html');
@@ -132,7 +130,7 @@ function check_input($data, $problem='')
 
 function show_error($myError)
 {
-    mail("deividov2000@gmail.com", "WEBSITE ERROR", "The error was " . $myError);
+    mail("name@gmail.com", "WEBSITE ERROR", "The error was " . $myError);
 
 ?>
     <html>

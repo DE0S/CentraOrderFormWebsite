@@ -26,8 +26,8 @@ label {
 }
 
 #submitButton {
-    height: 50px;
-    width: 90px;
+    float: right;
+    padding: 15px;
 }
 
 
@@ -37,15 +37,21 @@ Min-Width = if device width is >= 600
 
 */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 575px) {
     .titles {
         display: none;
     }
+    .smalltitles{
+        display: block;
+    }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 576px) {
     .titles {
         display: block;
+    }
+    .smalltitles{
+        display: none;
     }
 }
 
